@@ -1,0 +1,220 @@
+/* ==========================================================================
+   Hymalya Animations & Enhanced Interactive Styles
+   ========================================================================== */
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  width: 100%;
+  white-space: nowrap;
+  padding: 24px 0;
+  border-top: 1px solid rgba(58, 57, 57, 0.08);
+  border-bottom: 1px solid rgba(58, 57, 57, 0.08);
+  background: transparent;
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-text {
+  font-family: 'Hknova Medium', 'Montserrat', sans-serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  text-transform: uppercase;
+  color: rgba(58, 57, 57, 0.06);
+  letter-spacing: 0.08em;
+  padding: 0 40px;
+  line-height: 1;
+  transition: color 0.4s ease;
+}
+
+.marquee-container:hover .marquee-text {
+  color: rgba(183, 94, 93, 0.18);
+}
+
+/* Glass Navbar */
+.navbar.w-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: background-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Card Hover Micro-Interactions */
+.item-quolity, .faq-item, .card-partner, .item-connect {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+.item-quolity:hover, .faq-item:hover, .card-partner:hover {
+  transform: translateY(-4px);
+  border-color: rgba(240, 184, 181, 0.5) !important;
+  box-shadow: 0 12px 32px rgba(58, 57, 57, 0.07);
+}
+
+/* Floating Pouch Hover & Animation */
+.image-2, .image-pouch-float {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.image-2:hover, .image-pouch-float:hover {
+  transform: translateY(-8px) scale(1.02) rotate(-0.5deg);
+  filter: drop-shadow(0 20px 30px rgba(183, 94, 93, 0.25));
+}
+
+/* Interactive Buttons */
+.btn-primary, .button, .w-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover, .button:hover, .w-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(183, 94, 93, 0.3);
+}
+
+.btn-primary:active, .button:active, .w-button:active {
+  transform: translateY(0);
+}
+
+/* SplitType Character Animation Classes */
+.reveal-type .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reveal-type.is-revealed .char {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive Tab Styles */
+.heritage-tab-btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.heritage-tab-btn.active {
+  border-color: var(--color-brush-coral) !important;
+  background-color: rgba(240, 184, 181, 0.12);
+}
+
+/* Interactive Tooltips for Certificates */
+.cert-tooltip-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.cert-tooltip-modal.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cert-tooltip-box {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+  transform: scale(0.94);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.cert-tooltip-modal.is-active .cert-tooltip-box {
+  transform: scale(1);
+}
+
+.cert-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+}
+
+.cert-close-btn:hover {
+  background: #3A3939;
+  color: #fff;
+}
+
+/* Toast Notifications */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #3A3939;
+  color: #FFFFFF;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10001;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Active Navlink Highlighting */
+.navlink.is-current {
+  color: var(--color-rusty-rose) !important;
+  font-weight: 600;
+}
+
+.navlink.is-current::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--color-rusty-rose);
+  border-radius: 50%;
+  margin: 4px auto 0 auto;
+}
